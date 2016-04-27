@@ -47,7 +47,7 @@ class Crowdsource
 	 */
 	public function seasons()
 	{
-		$response = $this->client->request('GET', '/seasons');
+		$response = $this->client->request('GET', 'seasons');
 
 		return $this->getResponse($response);
 	}
@@ -61,7 +61,7 @@ class Crowdsource
 	 */
 	public function teams($round_ids = null, $competition_ids = null)
 	{
-		$response = $this->client->get('/teams', [], [
+		$response = $this->client->get('teams', [], [
 				'query' => [
 						'round_ids' => $round_ids,
 						'competition_ids' => $competition_ids,
@@ -83,7 +83,7 @@ class Crowdsource
 	 */
 	public function matches($team_id = null, $round_ids = null, $competition_id = null, $from = null, $to = null)
 	{
-		$response = $this->client->get('/matches', [], [
+		$response = $this->client->get('matches', [], [
 				'query' => [
 						'team_id' => $team_id,
 						'round_ids' => $round_ids,
@@ -104,7 +104,7 @@ class Crowdsource
 	 */
 	public function rounds($competition_ids = null)
 	{
-		$response = $this->client->get('/rounds', [], [
+		$response = $this->client->get('rounds', [], [
 				'query' => [
 						'competition_ids' => $competition_ids,
 				]
@@ -118,16 +118,12 @@ class Crowdsource
 	 */
 	protected function setClient()
 	{
-		$this->client = new Client(['base_uri' => [$this->endpoint, []]);
-		
-		// Connection timeout with server
-		$this->client->setDefaultOption('timeout', Config::get('crowdsource.timeout'));
-		
-		// disable cert verification for https connection
-		$this->client->setDefaultOption('verify', false);
-		
-		// Add Crowdsource custom header for api key authentication
-		$this->client->setDefaultOption('headers', ['x-crowdscores-api-key' => $this->key]);
+		$this->client = new Client([
+				'base_uri' => $this->endpoint,
+				'connect_timeout' => Config::get('crowdsource.timeout'),
+				'verify' => false,
+				'headers' => ['x-crowdscores-api-key' => $this->key],
+		]);
 	}
 	
 	/**
