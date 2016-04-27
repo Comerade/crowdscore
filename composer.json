@@ -1,0 +1,13 @@
+{
+    "name": "developerdynamo/Crowdsource",
+    "description": "Laravel package to connect and use Crowdsource API for footbal live score data",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel"],
+    "require": {},
+    "autoload": {
+	    "psr-4": {
+	        "DeveloperDynamo\\Crowdsource\\": "src/"
+	    }
+	}
+}
