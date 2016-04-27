@@ -120,11 +120,14 @@ class Crowdsource
 	{
 		$this->client = new Client(['base_uri' => $this->endpoint]);
 		
+		// Connection timeout with server
+		$this->client->setDefaultOption('timeout', Config::get('crowdsource.timeout'));
+		
 		// disable cert verification for https connection
 		$this->client->setDefaultOption('verify', false);
 		
 		// Add Crowdsource custom header for api key authentication
-		$this->client->setDefaultOption('headers', array('x-crowdscores-api-key' => $this->key));
+		$this->client->setDefaultOption('headers', ['x-crowdscores-api-key' => $this->key]);
 	}
 	
 	/**
