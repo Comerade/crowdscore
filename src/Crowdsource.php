@@ -118,7 +118,7 @@ class Crowdsource
 	 */
 	protected function setClient()
 	{
-		$this->client = new Client(['base_uri' => $this->endpoint]);
+		$this->client = new Client(['base_uri' => [$this->endpoint, []]);
 		
 		// Connection timeout with server
 		$this->client->setDefaultOption('timeout', Config::get('crowdsource.timeout'));
