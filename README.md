@@ -20,7 +20,7 @@ Like all providers, put this follow lines in your config/app.php
  
 'aliases' => [
 	...
-	'NotificationBridge' => DeveloperDynamo\Crowdsource\Facades\Crowdsource::class,
+	'Crowdsource' => DeveloperDynamo\Crowdsource\Facades\Crowdsource::class,
 ],
 
 #Publish configuration
