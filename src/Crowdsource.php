@@ -120,6 +120,10 @@ class Crowdsource
 	{
 		$this->client = new Client(['base_uri' => $this->endpoint]);
 		
+		// disable cert verification for https connection
+		$this->client->setDefaultOption('verify', false);
+		
+		// Add Crowdsource custom header for api key authentication
 		$this->client->setDefaultOption('headers', array('x-crowdscores-api-key' => $this->key));
 	}
 	
