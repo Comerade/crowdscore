@@ -1,10 +1,10 @@
 <?php
 
-namespace DeveloperDynamo\PushNotification;
+namespace DeveloperDynamo\Crowdsource;
 
 use Illuminate\Support\ServiceProvider;
 
-class PushNotificationProvider extends ServiceProvider
+class CrowdsourceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the PushNotification services.
@@ -14,7 +14,7 @@ class PushNotificationProvider extends ServiceProvider
     public function boot()
     {
     	$this->publishes([
-        	__DIR__.'/config/pushnotification.php' => config_path('pushnotification.php'),
+        	__DIR__.'/config/crowdsource.php' => config_path('crowdsource.php'),
     	], 'config');
     }
 
@@ -28,10 +28,10 @@ class PushNotificationProvider extends ServiceProvider
     	/*
     	 * To retrieve configuration width "dot notation" Es: "pushnotification.ios.xxx"
     	 */
-    	$this->mergeConfigFrom( __DIR__.'/config/pushnotification.php', 'pushnotification');
+    	$this->mergeConfigFrom( __DIR__.'/config/crowdsource.php', 'crowdsource');
     	
-    	$this->app['bridge'] = $this->app->share(function($app) {
-    		return new PushNotificationBridge($app);
+    	$this->app['crowdsource'] = $this->app->share(function() {
+    		return new Crowdsource();
     	});
     }
 }
