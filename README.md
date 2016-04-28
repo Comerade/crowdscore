@@ -47,7 +47,7 @@ php artisan vendor:publish --provider="DeveloperDynamo\Crowdsource\CrowdsourcePr
 ```
 
 #Put your Crowdsource api key
-In `config/crowdsource.php` you can put your crowdsource API KEY used by package to authorize your request.
+In `config/crowdsource.php` you can put your crowdsource API KEY used by package to authorize your requests.
 
 ```
 return [
