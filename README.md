@@ -6,7 +6,7 @@ This package use Guzzle HTTP client library that you needs to install in your La
 ```
 
 # Crowdsource live score API client
-Laravel package to connect and use Crowdsource API for footbal live score data
+Laravel package to connect and use Crowdsource API for football live score data
 
 #Install
 Add follow line into "require" section in your composer.json:
