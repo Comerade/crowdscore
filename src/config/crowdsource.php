@@ -13,7 +13,7 @@ return [
 	"endpoint" => "https://api.crowdscores.com/api/v1",
 	
 	/*
-	 * Connectio timeout 
+	 * Connection timeout 
 	 */
 	"timeout" => 120,
 
