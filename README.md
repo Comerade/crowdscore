@@ -38,3 +38,10 @@ Finally you need to generate a configuration file for this package. Run follow c
 ```
 php artisan vendor:publish --provider="DeveloperDynamo\Crowdsource\CrowdsourceProvider"
 ```
+
+#Call crowdsource API
+```
+$competitions = Crowdsource::competitions();
+
+var_dump($competitions);
+```
