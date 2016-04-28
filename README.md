@@ -64,6 +64,8 @@ return [
 ```
 
 #Call crowdsource API
+
+###Competitions
 ```
 use Crowdsource;
 
@@ -71,3 +73,40 @@ $competitions = Crowdsource::competitions();
 
 var_dump($competitions);
 ```
+
+###Seasons
+```
+use Crowdsource;
+
+$seasons = Crowdsource::seasons();
+
+var_dump($seasons);
+```
+
+###Teams
+```
+use Crowdsource;
+
+$teams = Crowdsource::teams();
+
+var_dump($teams);
+```
+Teams accept a few parameters as `round_ids` or `competitions_ids`. You can pass the params into `teams()` method:
+
+```
+// Single value
+$teams = Crowdsource::teams(2323, 3232);
+
+//Array for multiple values
+$teams = Crowdsource::teams([2323, 2324], [3232, 3233]);
+```
+
+###Matches
+```
+use Crowdsource;
+
+$matches = Crowdsource::matches();
+
+var_dump($matches);
+```
+Also `/matches` route accept a few params tha you can treat in the same way of `/teams`.
