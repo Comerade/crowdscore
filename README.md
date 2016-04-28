@@ -39,6 +39,30 @@ Finally you need to generate a configuration file for this package. Run follow c
 php artisan vendor:publish --provider="DeveloperDynamo\Crowdsource\CrowdsourceProvider"
 ```
 
+#Put your Crowdsource api key
+In `config/crowdsource.php` you can put your crowdsource API KEY used by package to authorize your request.
+
+```
+return [
+	
+	/*
+	 * API KEY of your Crowdsourse account
+	 */
+    "key" => '',
+	
+	/*
+	 * Crowdsourse API v1 endpoint
+	 */
+	"endpoint" => "https://api.crowdscores.com/api/v1",
+	
+	/*
+	 * Connectio timeout 
+	 */
+	"timeout" => 120,
+
+];
+```
+
 #Call crowdsource API
 ```
 use Crowdsource;
