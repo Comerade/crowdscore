@@ -45,6 +45,18 @@ class Crowdsource
 	 * 
 	 * @return array
 	 */
+	public function competitions()
+	{
+		$response = $this->client->request('GET', 'competitions');
+
+		return $this->getResponse($response);
+	}
+	
+	/**
+	 * Retrieve seasons list
+	 * 
+	 * @return array
+	 */
 	public function seasons()
 	{
 		$response = $this->client->request('GET', 'seasons');
