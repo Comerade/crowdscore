@@ -41,6 +41,8 @@ php artisan vendor:publish --provider="DeveloperDynamo\Crowdsource\CrowdsourcePr
 
 #Call crowdsource API
 ```
+use Crowdsource;
+
 $competitions = Crowdsource::competitions();
 
 var_dump($competitions);
