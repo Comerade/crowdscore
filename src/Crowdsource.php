@@ -67,18 +67,19 @@ class Crowdsource
 	/**
 	 * Retrieve seasons list
 	 * 
-	 * @param string $round_ids
-	 * @param string $competition_ids
+	 * @param integer|array $round_ids
+	 * @param integer|array $competition_ids
 	 * @return array
 	 */
 	public function teams($round_ids = null, $competition_ids = null)
 	{
-		$response = $this->client->get('teams', [], [
-				'query' => [
-						'round_ids' => $round_ids,
-						'competition_ids' => $competition_ids,
-				]
-		]);
+		if(is_array($round_ids))
+			$round_ids = implode(",", $round_ids);
+
+		if(is_array($competition_ids))
+			$competition_ids = implode(",", $competition_ids);
+		
+		$response = $this->client->get('teams?round_ids='.$round_ids.'&competition_ids='.$competition_ids);
 
 		return $this->getResponse($response);
 	}
@@ -95,15 +96,10 @@ class Crowdsource
 	 */
 	public function matches($team_id = null, $round_ids = null, $competition_id = null, $from = null, $to = null)
 	{
-		$response = $this->client->get('matches', [], [
-				'query' => [
-						'team_id' => $team_id,
-						'round_ids' => $round_ids,
-						'competition_id' => $competition_id,
-						'from' => $from,
-						'to' => $to,
-				]
-		]);
+		if(is_array($round_ids))
+			$round_ids = implode(",", $round_ids);
+		
+		$response = $this->client->get('matches?team_id='.$team_id.'&round_ids='.$round_ids.'&competition_id='.$competition_id.'&from='.$from.'&to='.$to);
 		
 		return $this->getResponse($response);
 	}
@@ -111,16 +107,15 @@ class Crowdsource
 	/**
 	 * Retrieve rounds list
 	 * 
-	 * @param string $competition_ids
+	 * @param integer|array $competition_ids
 	 * @return array
 	 */
 	public function rounds($competition_ids = null)
 	{
-		$response = $this->client->get('rounds', [], [
-				'query' => [
-						'competition_ids' => $competition_ids,
-				]
-		]);
+		if(is_array($competition_ids))
+			$competition_ids = implode(",", $competition_ids);
+		
+		$response = $this->client->get('rounds?competition_ids='.$competition_ids);
 
 		return $this->getResponse($response);
 	}
