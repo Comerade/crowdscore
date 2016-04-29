@@ -5,14 +5,14 @@ This package use Guzzle HTTP client library that you needs to install in your La
 "guzzlehttp/guzzle": "~6.0",
 ```
 
-# Crowdsource live score API client
-Laravel package to connect and use Crowdsource API for football live score data
+# Crowdscore live score API client
+Laravel package to connect and use Crowdscore API for football live score data
 
 #Install
 Add follow line into "require" section in your composer.json:
 
 ```
-"developerdynamo/crowdsource": "1.*"
+"developerdynamo/crowdscore": "1.*"
 ```
 
 Update composer with command:
@@ -27,7 +27,7 @@ Like all providers, put this follow lines in your config/app.php
 ```
 'providers' => [
 	...
-	DeveloperDynamo\Crowdsource\CrowdsourceProvider::class,
+	DeveloperDynamo\Crowdscore\CrowdsourceProvider::class,
 ],
 ```
 
@@ -35,7 +35,7 @@ Add facades in aliases array
 ```
 'aliases' => [
 	...
-	'Crowdsource' => DeveloperDynamo\Crowdsource\Facades\Crowdsource::class,
+	'Crowdscore' => DeveloperDynamo\Crowdscore\Facades\Crowdscore::class,
 ],
 ```
 
@@ -53,12 +53,12 @@ In `config/crowdsource.php` you can put your crowdsource API KEY used by package
 return [
 	
 	/*
-	 * API KEY of your Crowdsourse account
+	 * API KEY of your Crowdscore account
 	 */
     "key" => '',
 	
 	/*
-	 * Crowdsourse API v1 endpoint
+	 * Crowdscore API v1 endpoint
 	 */
 	"endpoint" => "https://api.crowdscores.com/api/v1",
 	
@@ -70,31 +70,31 @@ return [
 ];
 ```
 
-#Call crowdsource API
+#Call Crowdscore API
 
 ###Competitions
 ```
-use Crowdsource;
+use Crowdscore;
 
-$competitions = Crowdsource::competitions();
+$competitions = Crowdscore::competitions();
 
 var_dump($competitions);
 ```
 
 ###Seasons
 ```
-use Crowdsource;
+use Crowdscore;
 
-$seasons = Crowdsource::seasons();
+$seasons = Crowdscore::seasons();
 
 var_dump($seasons);
 ```
 
 ###Teams
 ```
-use Crowdsource;
+use Crowdscore;
 
-$teams = Crowdsource::teams();
+$teams = Crowdscore::teams();
 
 var_dump($teams);
 ```
@@ -102,17 +102,17 @@ Teams accept a few parameters as `round_ids` or `competitions_ids`. You can pass
 
 ```
 // Single value
-$teams = Crowdsource::teams(2323, 3232);
+$teams = Crowdscore::teams(2323, 3232);
 
 //Array for multiple values
-$teams = Crowdsource::teams([2323, 2324], [3232, 3233]);
+$teams = Crowdscore::teams([2323, 2324], [3232, 3233]);
 ```
 
 ###Matches
 ```
-use Crowdsource;
+use Crowdscore;
 
-$matches = Crowdsource::matches();
+$matches = Crowdscore::matches();
 
 var_dump($matches);
 ```

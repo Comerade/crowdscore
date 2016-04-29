@@ -1,10 +1,10 @@
 <?php
 
-namespace DeveloperDynamo\Crowdsource;
+namespace DeveloperDynamo\Crowdscore;
 
 use Illuminate\Support\ServiceProvider;
 
-class CrowdsourceProvider extends ServiceProvider
+class CrowdscoreProvider extends ServiceProvider
 {
     /**
      * Bootstrap the PushNotification services.
@@ -14,7 +14,7 @@ class CrowdsourceProvider extends ServiceProvider
     public function boot()
     {
     	$this->publishes([
-        	__DIR__.'/config/crowdsource.php' => config_path('crowdsource.php'),
+        	__DIR__.'/config/crowdscore.php' => config_path('crowdscore.php'),
     	], 'config');
     }
 
@@ -28,10 +28,10 @@ class CrowdsourceProvider extends ServiceProvider
     	/*
     	 * To retrieve configuration width "dot notation" Es: "pushnotification.ios.xxx"
     	 */
-    	$this->mergeConfigFrom( __DIR__.'/config/crowdsource.php', 'crowdsource');
+    	$this->mergeConfigFrom( __DIR__.'/config/crowdscore.php', 'crowdscore');
     	
-    	$this->app['crowdsource'] = $this->app->share(function() {
-    		return new Crowdsource();
+    	$this->app['crowdscore'] = $this->app->share(function() {
+    		return new Crowdscore();
     	});
     }
 }

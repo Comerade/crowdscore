@@ -3,12 +3,12 @@
 return [
 	
 	/*
-	 * API KEY of your Crowdsourse account
+	 * API KEY of your Crowdscore account
 	 */
     "key" => '',
 	
 	/*
-	 * Crowdsourse API v1 endpoint
+	 * Crowdscore API v1 endpoint
 	 */
 	"endpoint" => "https://api.crowdscores.com/api/v1",
 	

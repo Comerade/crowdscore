@@ -1,11 +1,11 @@
 <?php
 
-namespace DeveloperDynamo\Crowdsource;
+namespace DeveloperDynamo\Crowdscore;
 
 use Config;
 use GuzzleHttp\Client;
 
-class Crowdsource
+class Crowdscore
 {
 	/**
 	 * API KEY of your Crowdsourse account
@@ -22,20 +22,20 @@ class Crowdsource
 	protected $endpoint;
 	
 	/**
-	 * HTTP client prepared to call Crowdsource API
+	 * HTTP client prepared to call Crowdscore API
 	 * 
 	 * @var GuzzleHttp\Client
 	 */
 	protected $client;
 	
 	/**
-	 * Create a new Crowdsource instance.
+	 * Create a new Crowdscore instance.
 	 * 
 	 */
 	public function __construct()
 	{
-		$this->key = Config::get('crowdsource.key');
-		$this->endpoint = Config::get('crowdsource.endpoint');
+		$this->key = Config::get('crowdscore.key');
+		$this->endpoint = Config::get('crowdscore.endpoint');
 		
 		$this->setClient();
 	}
