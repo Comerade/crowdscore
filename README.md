@@ -27,7 +27,7 @@ Like all providers, put this follow lines in your config/app.php
 ```
 'providers' => [
 	...
-	DeveloperDynamo\Crowdscore\CrowdsourceProvider::class,
+	DeveloperDynamo\Crowdscore\CrowdscoreProvider::class,
 ],
 ```
 
@@ -43,11 +43,11 @@ Add facades in aliases array
 Finally you need to generate a configuration file for this package. Run follow composer command:
 
 ```
-php artisan vendor:publish --provider="DeveloperDynamo\Crowdsource\CrowdsourceProvider"
+php artisan vendor:publish --provider="DeveloperDynamo\Crowdscore\CrowdscoreProvider"
 ```
 
-#Put your Crowdsource api key
-In `config/crowdsource.php` you can put your crowdsource API KEY used by package to authorize your requests.
+#Put your Crowdscore api key
+In `config/crowdscore.php` you can put your crowdsource API KEY used by package to authorize your requests.
 
 ```
 return [
