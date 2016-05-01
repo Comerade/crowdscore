@@ -105,6 +105,19 @@ class Crowdscore
 	}
 	
 	/**
+	 * Retrieve matches details
+	 * 
+	 * @param integer $metch_id
+	 * @return array
+	 */
+	public function matchDetails($metch_id)
+	{
+		$response = $this->client->get('matches/'.$metch_id);
+		
+		return $this->getResponse($response);
+	}
+	
+	/**
 	 * Retrieve rounds list
 	 * 
 	 * @param integer|array $competition_ids
